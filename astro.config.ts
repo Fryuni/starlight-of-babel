@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import netlify from '@astrojs/netlify';
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +15,10 @@ export default defineConfig({
             social: {
                 github: 'https://github.com/Fryuni/starlight-of-babel',
             },
+            customCss: [
+                // Path to your Tailwind base styles:
+                './src/tailwind.css',
+            ],
             sidebar: [
                 {
                     label: 'Home',
@@ -28,6 +33,9 @@ export default defineConfig({
                     link: '/library/random',
                 },
             ],
+        }),
+        tailwind({
+            applyBaseStyles: false,
         }),
     ],
 });

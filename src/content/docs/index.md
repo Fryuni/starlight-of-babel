@@ -8,8 +8,8 @@ hero:
     - text: Find any content
       link: /library/find
       icon: right-arrow
-    - text: Open a random page
-      link: https://starlight.astro.build
-      icon: star
-      variant: minimal
+    # - text: Open a random page
+    #   link: https://starlight.astro.build
+    #   icon: star
+    #   variant: minimal
 ---

@@ -14,6 +14,7 @@ export default defineConfig({
         starlight({
             title: 'My Docs',
             prerender: false,
+            pagination: false,
             social: {
                 github: 'https://github.com/Fryuni/starlight-of-babel',
             },

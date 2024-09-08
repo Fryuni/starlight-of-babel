@@ -1,3 +1,45 @@
-<div>
-  Foo
-</div>
+---
+import {scope} from 'simple:scope';
+import {actions} from 'astro:actions';
+
+const formData = Astro.getActionResult(actions.findEntry);
+console.log(formData);
+---
+{formData && formData.data && (
+<meta http-equiv="refresh" content={`0; url=/library/entry?p=${encodeURIComponent(formData.data)}`} />
+)}
+{formData && formData.error && (
+  <p>{formData.error.message}</p>
+)}
+
+<form class:list={[scope('form')]} class="grid" method="POST" action={actions.findEntry}>
+<textarea
+  placeholder="Content to search"
+  name="content"
+  class:list={[
+    'textarea',
+    'textarea-bordered',
+    'textarea-md',
+    'w-full',
+    'min-w-full',
+    'max-w-full'
+  ]}></textarea>
+
+<button type="submit" class="btn btn-outline btn-primary">Go</button>
+</form>
+
+<script>
+import {scope} from 'simple:scope';
+
+const forms = document.querySelectorAll<HTMLFormElement>(scope('form'));
+forms.forEach((form) => {
+  const textarea = form.querySelector<HTMLTextAreaElement>('textarea')!;
+  textarea.addEventListener('keydown', (event) => {
+    // On Ctrl+Enter, submit the form
+    if (event.ctrlKey && event.key === 'Enter') {
+      event.preventDefault();
+      form.submit();
+    }
+  });
+});
+</script>

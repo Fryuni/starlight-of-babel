@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import netlify from '@astrojs/netlify';
 import tailwind from '@astrojs/tailwind';
+import runtimeMd from './runtimeMd/index.js';
+import simpleStackQuery from 'simple-stack-query';
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,14 +30,10 @@ export default defineConfig({
                     label: 'Find any content',
                     link: '/library/find',
                 },
-                {
-                    label: 'Open a random content',
-                    link: '/library/random',
-                },
             ],
         }),
-        tailwind({
-            applyBaseStyles: false,
-        }),
+        tailwind({ applyBaseStyles: false, }),
+        simpleStackQuery(),
+        runtimeMd(),
     ],
 });

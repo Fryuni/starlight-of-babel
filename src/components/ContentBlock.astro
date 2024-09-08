@@ -1,0 +1,15 @@
+---
+import {actions} from 'astro:actions';
+import processor from 'virtual:md';
+const entry = Astro.url.searchParams.get('p');
+
+const content = entry
+  ? await Astro.callAction(actions.expandEntry, {entry})
+    .then(res => res.error ? res.error.message : res.data)
+  : null;
+
+const html = content
+  ? await processor.render(content).then(res => res.code)
+  : '<p>No content found.</p>';
+---
+<Fragment set:html={html} />

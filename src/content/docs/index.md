@@ -1,6 +1,7 @@
 ---
 title: Starlight of Babel
 description: The most docs of all the docs.
+tableOfContents: false
 hero:
   tagline: One Docs to rule them all, One Docs to describe them, One Docs to build them all, and with Starlight publish them.
   image:

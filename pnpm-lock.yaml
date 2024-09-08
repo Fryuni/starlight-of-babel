@@ -35,6 +35,9 @@ importers:
       astro-integration-kit:
         specifier: ^0.16.1
         version: 0.16.1(astro@4.15.4(rollup@4.21.2)(typescript@5.5.4))
+      daisyui:
+        specifier: ^4.12.10
+        version: 4.12.10(postcss@8.4.45)
       rehype-expressive-code:
         specifier: ^0.36.1
         version: 0.36.1
@@ -50,10 +53,6 @@ importers:
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
-    devDependencies:
-      daisyui:
-        specifier: ^4.12.10
-        version: 4.12.10(postcss@8.4.45)
 
 packages:
 
